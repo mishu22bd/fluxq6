@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myq2app
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: myq2app
+  template:
+    metadata:
+      labels:
+        app: myq2app
+    spec:
+      containers:
+      - name: myq2app
+        image: mishu22bd/k8s-q2:latest
+        ports:
+        - containerPort: 8080
+
